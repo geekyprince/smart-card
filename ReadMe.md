@@ -3,6 +3,11 @@
 <img width="1505" alt="image" src="https://github.com/geekyprince/metro-card/assets/44468899/42459c73-b436-4ca2-b107-470d40bd0377">
 
 
+# Problem Statement
+
+https://www.geektrust.com/coding/detailed/metro-card
+
+
 # Pre-requisites
 * Java 1.8/1.11/1.15
 * Maven
