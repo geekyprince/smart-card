@@ -6,9 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import static com.example.geektrust.config.ApplicationConfigs.FIRST_ARG;
-import static com.example.geektrust.config.ApplicationConfigs.MIN_ARGS;
-
 @SpringBootApplication
 public class Geektrust implements CommandLineRunner {
 
@@ -21,9 +18,11 @@ public class Geektrust implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if(args.length < MIN_ARGS) {
-            throw new Exception("Please mention the input file");
-        }
-        inputProcessor.processFilePath(args[FIRST_ARG]);
+//        if(args.length < MIN_ARGS) {
+//            throw new Exception("Please mention the input file");
+//        }
+//        inputProcessor.processFilePath(args[FIRST_ARG]);
+        inputProcessor.processFilePath("src/main/resources/input1.txt");
+
     }
 }

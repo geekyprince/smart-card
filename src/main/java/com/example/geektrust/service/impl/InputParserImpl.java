@@ -2,31 +2,26 @@ package com.example.geektrust.service.impl;
 
 import com.example.geektrust.commands.CommandType;
 import com.example.geektrust.commands.parsers.Parser;
-import com.example.geektrust.commands.parsers.impl.BalanceInputParser;
-import com.example.geektrust.commands.parsers.impl.CheckInInputParser;
-import com.example.geektrust.commands.parsers.impl.PrintSummaryInputParser;
 import com.example.geektrust.contract.input.Input;
 import com.example.geektrust.exception.InvalidCommandException;
 import com.example.geektrust.service.InputParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
-@Component
+@Service
 public class InputParserImpl implements InputParser {
 
     private final HashMap<CommandType, Parser> inputParsers = new HashMap<>();
 
+    private final List<Parser> parsers;
+
     @Autowired
-    public InputParserImpl() {
-        List<Parser> parsers = new ArrayList<>();
-        parsers.add(new BalanceInputParser());
-        parsers.add(new CheckInInputParser());
-        parsers.add(new PrintSummaryInputParser());
+    public InputParserImpl(List<Parser> parsers) {
+        this.parsers = parsers;
         parsers.forEach(parser -> inputParsers.put(parser.commandType(), parser));
     }
     @Override

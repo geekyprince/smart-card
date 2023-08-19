@@ -3,7 +3,9 @@ package com.example.geektrust.commands.parsers.impl;
 import com.example.geektrust.commands.CommandType;
 import com.example.geektrust.commands.parsers.Parser;
 import com.example.geektrust.contract.input.impl.PrintSummaryInput;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PrintSummaryInputParser implements Parser<PrintSummaryInput> {
     @Override
     public PrintSummaryInput parseInput(String[] input) {

@@ -10,17 +10,11 @@ import java.util.List;
 
 @Service
 public class CommandExecutor {
-    private final BalanceCommand balanceCommand;
-    private final CheckInCommand checkInCommand;
-    private  final PrintSummaryCommand printSummaryCommand;
     private  final List<Command> commands;
     private  final HashMap<CommandType, Command> commandsMap = new HashMap<>();
 
     @Autowired
-    public CommandExecutor(BalanceCommand balanceCommand, CheckInCommand checkInCommand, PrintSummaryCommand printSummaryCommand, List<Command> commands) {
-        this.balanceCommand = balanceCommand;
-        this.checkInCommand = checkInCommand;
-        this.printSummaryCommand = printSummaryCommand;
+    public CommandExecutor(List<Command> commands) {
         this.commands = commands;
         commands.forEach(command -> commandsMap.put(command.commandType(), command));
 

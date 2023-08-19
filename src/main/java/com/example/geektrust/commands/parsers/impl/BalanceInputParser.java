@@ -3,7 +3,9 @@ package com.example.geektrust.commands.parsers.impl;
 import com.example.geektrust.commands.CommandType;
 import com.example.geektrust.commands.parsers.Parser;
 import com.example.geektrust.contract.input.impl.BalanceInput;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BalanceInputParser implements Parser<BalanceInput> {
     @Override
     public BalanceInput parseInput(String[] input) {

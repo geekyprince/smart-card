@@ -4,7 +4,9 @@ import com.example.geektrust.commands.CommandType;
 import com.example.geektrust.commands.parsers.Parser;
 import com.example.geektrust.contract.input.impl.CheckInInput;
 import com.example.geektrust.entity.enums.PassengerType;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CheckInInputParser implements Parser<CheckInInput> {
     @Override
     public CheckInInput parseInput(String[] input) {

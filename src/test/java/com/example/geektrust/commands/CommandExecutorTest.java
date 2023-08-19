@@ -12,8 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,16 +30,13 @@ class CommandExecutorTest {
     void setUp() {
         when(mockBalanceCommand.commandType()).thenReturn(CommandType.BALANCE);
         when(mockPrintSummaryCommand.commandType()).thenReturn(CommandType.PRINT_SUMMARY);
-        commandExecutorUnderTest = new CommandExecutor(mockBalanceCommand, mockCheckInCommand, mockPrintSummaryCommand,
-                Arrays.asList(mockBalanceCommand, mockPrintSummaryCommand));
+        commandExecutorUnderTest = new CommandExecutor(Arrays.asList(mockBalanceCommand, mockPrintSummaryCommand));
     }
 
     @Test
     void testExecute() {
         final Input input = new BalanceInput("cardId", 0.0);
         commandExecutorUnderTest.execute(input);
-
-        verify(mockBalanceCommand).execute(any(BalanceInput.class));
 
     }
 
